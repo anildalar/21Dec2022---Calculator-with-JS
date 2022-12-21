@@ -5,8 +5,157 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>JS Calculator</title>
+        <style>
+            div.myCalculator{
+                width: 400px;
+                height: 400px;
+                background:#333;
+                margin: 50px auto;
+                border-radius: 20px;
+            }
+            div.myResult{
+                width: 90%;
+                height: 60px;
+                line-height: 60px;
+
+                margin: 50px auto;
+                background:#ccc;
+                border-radius: 10px;
+                position: relative;
+                top:20px;
+                padding-right:20px;
+                text-align: right;
+            }
+            table.mytable{
+                width: 100% ;
+                height: 290px;
+                text-align: center;
+            }
+            table button{
+                padding:20px;
+                font-weight: bolder;
+            }
+        </style>
     </head>
     <body>
-        
+        <div class="myCalculator">
+            <div class="myResult"></div>
+            <table class="mytable">
+                <tr>
+                    <td>
+                        <button onclick="anil(this)">7</button>
+                    </td>
+                    <td>
+                        <button onclick="anil(this)">8</button>
+                    </td>
+                    <td>
+                        <button onclick="anil(this)">9</button>
+                    </td>
+                    <td>
+                        <button onclick="anil(this)">X</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="anil(this)">4</button>
+                    </td>
+                    <td>
+                        <button onclick="anil(this)">5</button>
+                    </td>
+                    <td>
+                        <button onclick="anil(this)">6</button>
+                    </td>
+                    <td>
+                        <button onclick="anil(this)">/</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="anil(this)">1</button>
+                    </td>
+                    <td>
+                        <button onclick="anil(this)">2</button>
+                    </td>
+                    <td>
+                        <button onclick="anil(this)">3</button>
+                    </td>
+                    <td>
+                        <button onclick="anil(this)">-</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="anil(this)">0</button>
+                    </td>
+                    <td>
+                        <button onclick="anil(this)">.</button>
+                    </td>
+                    <td>
+                        <button onclick="anil(this)">=</button>
+                    </td>
+                    <td>
+                        <button onclick="anil(this)">+</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            //I can write the js code before the closing of body tag
+
+
+            //Global Variable
+            //object.method();
+            let r = document.querySelector("div.myResult");
+            var leftValue;
+            var rightValue;
+            var operator='';
+
+            //1. Function defination
+            function anil(elem){ // elem is a formal arguemnt
+
+                if( (operator !== 'X') || (operator !== '/') || (operator !== '-') || (operator !== '+') ){
+                   
+                    window.localStorage.setItem('rightValue',rightValue)
+                    console.log('RightValue',elem.innerHTML)
+                }
+                switch(elem.innerHTML) {
+                    case 'X':
+                        // code block
+                        leftValue =  r.innerHTML;
+                        console.log('LeftValue is ',leftValue);
+                        operator = 'X';
+                        console.log('Multiplication operation' );
+                        break;
+                    case '/':
+                      // code block
+                      console.log('Division operation');
+                      break;
+                    case '-':
+                      // code block
+                      console.log('Substration operation');
+                      break;
+                    case '+':
+                      // code block
+                      console.log('Addition operation');
+                      break;
+                    case '=':
+                      // code block
+                      console.log('Result');
+                      // LeftValue Operator RightValue
+                        console.log('LeftValue is ',leftValue);
+                        console.log('Operator is ',operator);
+                        console.log('RightValue is',window.localStorage.getItem('rightValue'));
+
+                      break;
+                    default:
+                      // code block
+                }
+                //function body
+                //console.log(elem.innerHTML);
+                r.innerHTML = r.innerHTML + elem.innerHTML;
+                //console.log(r.innerHTML);
+            }
+        </script>
     </body>
 </html>

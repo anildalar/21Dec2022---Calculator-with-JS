@@ -1,0 +1,6 @@
+DOM = Document Object Model
+
+Aritmetic Operation
+
+ LeftValue Operator RightValue
+      1       +        2
