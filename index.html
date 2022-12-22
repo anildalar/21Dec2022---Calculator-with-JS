@@ -101,6 +101,7 @@
         </div>
 
         <script>
+            var isOperatorButtonClicked = false; // false
             //I can write the js code before the closing of body tag
 
 
@@ -111,51 +112,73 @@
             var rightValue;
             var operator='';
 
+            
+
             //1. Function defination
             function anil(elem){ // elem is a formal arguemnt
-
-                if( (operator !== 'X') || (operator !== '/') || (operator !== '-') || (operator !== '+') ){
-                   
-                    window.localStorage.setItem('rightValue',rightValue)
-                    console.log('RightValue',elem.innerHTML)
-                }
+                console.log(elem);
+                
+                r.innerHTML = r.innerHTML + elem.innerHTML;
                 switch(elem.innerHTML) {
                     case 'X':
+                        isOperatorButtonClicked = true;
                         // code block
+                        operator='X';
                         leftValue =  r.innerHTML;
+
+                        window.localStorage.setItem('leftValue',leftValue);
+                        window.localStorage.setItem('operator','X');
                         console.log('LeftValue is ',leftValue);
-                        operator = 'X';
-                        console.log('Multiplication operation' );
+                        console.log('RightValue is ',rightValue);
                         break;
                     case '/':
-                      // code block
-                      console.log('Division operation');
-                      break;
+                        isOperatorButtonClicked = true;
+                        // code block
+                        console.log('Division operation');
+                        break;
                     case '-':
-                      // code block
-                      console.log('Substration operation');
-                      break;
+                        isOperatorButtonClicked = true;
+                         // code block
+                        console.log('Substration operation');
+                        break;
                     case '+':
-                      // code block
-                      console.log('Addition operation');
-                      break;
+                        isOperatorButtonClicked = true;
+                        // code block
+                        console.log('Addition operation');
+                        break;
                     case '=':
-                      // code block
-                      console.log('Result');
-                      // LeftValue Operator RightValue
-                        console.log('LeftValue is ',leftValue);
-                        console.log('Operator is ',operator);
-                        console.log('RightValue is',window.localStorage.getItem('rightValue'));
+                        // code block
+                        isOperatorButtonClicked = false;
+                        
+                        leftValue = window.localStorage.getItem('leftValue');
+                        rightValue = window.localStorage.getItem('rightValue');
+                        operator = window.localStorage.getItem('operator');
+
+                        switch(operator){
+                            case "X":
+                                leftValue = parseFloat(leftValue); // String into number
+                                rightValue = parseFloat(rightValue); // String into number
+                                console.log(leftValue*rightValue);
+                                r.innerHTML = leftValue*rightValue;
+                                //r.innerHTML = r.innerHTML.substring(0, r.innerHTML.length-1);
+                                //console.log(r.innerHTML);
+                            break;
+
+                            default:
+                        }
+                       
 
                       break;
                     default:
                       // code block
                 }
-                //function body
-                //console.log(elem.innerHTML);
-                r.innerHTML = r.innerHTML + elem.innerHTML;
-                //console.log(r.innerHTML);
-            }
+                if(isOperatorButtonClicked === true){
+                    rightValue = elem.innerHTML;
+                    rightValue = window.localStorage.setItem('rightValue',rightValue)
+                    console.log('Right value ',elem.innerHTML);
+                }
+                
+            }//Function close
         </script>
     </body>
 </html>

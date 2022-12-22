@@ -4,3 +4,38 @@ Aritmetic Operation
 
  LeftValue Operator RightValue
       1       +        2
+
+
+Problem Staments
+
+What is the problem statements for the current assignment ?
+
+The problem statement is to create a calculator.
+
+
+There are 2 steps to solve a problem statment
+1.Create a Algorithm/Psudocode.
+		The step by step prsecudure to solve a problem is Psudocode/Algorithm
+2. Write the code.
+
+Algorithm/Psudocode is compolsoary when you are working with a team.
+
+Ex.
+
+Problem Statement
+Build a calculator
+
+1. Algorithm/Psudocode.
+	 1. Design a basic layout of calculator using HTML and CSS.
+	 2. Attache an event handler on every button. i.e onclick
+	 3. In order to solve any arithmetic operation we need 3 things
+			3.1 Left Value
+			3.2 Operator
+			3.3 Right Value
+	 4. When you click on any button the innerHTML(Content Area) with previsouly concatinated value   
+       of the resulstBox Should be displayed inside resultBox and will be stored in leftValue.
+
+	 5. Whenever you click on any operator button i.e + - * /, then the next button will belongs to right value untill you click on = (equal to button).
+
+77+3= 
+	
